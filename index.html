@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -52,16 +52,38 @@ button {
   10% { opacity: 1; }
   100% { transform: translateY(-10vh); opacity: 0; }
 }
+
+.hidden {
+  display: none;
+}
+
+.congrats {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="container" id="main">
   <h1>ARZOO, WILL YOU BE MY VALENTINE? ❤️</h1>
   <button id="yesBtn" class="yes">YES 💖</button>
   <button id="noBtn" class="no">NO 🙈</button>
 </div>
+
+<div class="container hidden" id="success">
+  <div class="congrats">
+    🎉 Congratulations ARZOO ❤️ <br><br>
+    You just made me the happiest person 💕
+  </div>
+</div>
+
+<!-- Romantic music -->
+<audio id="music" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 // Floating hearts
@@ -76,6 +98,9 @@ setInterval(() => {
 
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
+const main = document.getElementById("main");
+const success = document.getElementById("success");
+const music = document.getElementById("music");
 
 // NO button bhagna
 function moveNo() {
@@ -86,18 +111,17 @@ function moveNo() {
   noBtn.style.top = y + "px";
 }
 
-// Desktop + Mobile
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("touchstart", moveNo);
-
-// NO click
 noBtn.addEventListener("click", () => {
   alert("Try again 😜");
 });
 
-// YES → CALL OPEN
+// YES button
 yesBtn.addEventListener("click", () => {
-  window.location.href = "tel:+919890440093";
+  main.classList.add("hidden");
+  success.classList.remove("hidden");
+  music.play();
 });
 </script>
 
