@@ -77,6 +77,7 @@ setInterval(() => {
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 
+// NO button bhagna
 function moveNo() {
   const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
   const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
@@ -85,16 +86,19 @@ function moveNo() {
   noBtn.style.top = y + "px";
 }
 
-// NO button: bhage + Try again
+// Desktop + Mobile
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("touchstart", moveNo);
+
+// NO click alert
 noBtn.addEventListener("click", () => {
   alert("Try again 😜");
 });
 
-// YES button
+// YES → WhatsApp redirect
 yesBtn.addEventListener("click", () => {
-  alert("Yayyy ❤️ I knew it!");
+  window.location.href =
+    "https://wa.me/919890440093?text=I%20said%20YES%20❤️%20Happy%20Valentine!";
 });
 </script>
 
