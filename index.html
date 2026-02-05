@@ -59,21 +59,10 @@ button {
 
 <div class="container">
   <h1>ARZOO, WILL YOU BE MY VALENTINE? ❤️</h1>
-  <button class="yes" onclick="alert('Yayyy ❤️')">YES 💖</button>
+  <button id="yesBtn" class="yes">YES 💖</button>
   <button id="noBtn" class="no">NO 🙈</button>
+</div>
 
-<script>
-setInterval(() => {
-  const h = document.createElement("div");
-  h.className = "heart";
-  h.innerText = "❤️";
-  h.style.left = Math.random()*100 + "vw";
-  document.body.appendChild(h);
-  setTimeout(() => h.remove(), 6000);
-}, 300);
-</script>
-
-</body>
 <script>
 // Floating hearts
 setInterval(() => {
@@ -96,12 +85,19 @@ function moveNo() {
   noBtn.style.top = y + "px";
 }
 
-// Desktop + Mobile
+// NO button: bhage + Try again
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("touchstart", moveNo);
+noBtn.addEventListener("click", () => {
+  alert("Try again 😜");
+});
 
-// YES
-yesBtn.onclick = () => {
+// YES button
+yesBtn.addEventListener("click", () => {
   alert("Yayyy ❤️ I knew it!");
-};
+});
 </script>
+
+</body>
+</html>
+
